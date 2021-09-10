@@ -1,0 +1,135 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard span {
+    font-size: large;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.dashboard-new {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1em;
+    width: 10.5em;
+}
+
+.dashboard-new {
+    border: none;
+    border-radius: 5px;
+    color: #F8F8F8;
+    padding: 0.5em;
+    background-color: #83BF02;
+    transition: all 0.4s;
+}
+
+.dashboard-new:hover {
+    background-color: #5FD204;
+    transform: scale(1.1);
+}
+
+.dashboard-new svg {
+    padding-right: 0.5em;
+}
+
+.dashboard-table table {
+    border: 1px solid #CCC;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.dashboard-table table caption {
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin: .5em 0.75em;
+}
+
+.dashboard-table tr {
+    background-color: #F8F8F8;
+    border: 1px solid #ddd;
+    padding: 0.35em;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 0.35em;
+    text-align: center;
+}
+
+.dashboard-table th {
+    font-size: 0.85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.dashboard-table td .action {
+    padding: 0.35em;
+    margin-right: 0.2em;
+    display: inline-block;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.dashboard-table td .action svg {
+    vertical-align: middle;
+}
+
+.dashboard-table td .badge {
+    background-color: #5FD204;
+    padding: 0.3em;
+    border-radius: 3px;
+    color: #FFF;
+}
+
+@media screen and (max-width : 600px) {
+    
+    .dashboard-table table {
+        border: 0;
+    }
+
+    .dashboard-table table caption {
+        font-size: 1.3em;
+    }
+
+    .dashboard-table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .dashboard-table tr{
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: 0.65em;
+    }
+
+    .dashboard-table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    .dashboard-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    } 
+
+    .dashboard-table td:last-child {
+        border-bottom: 0;
+    }
+}

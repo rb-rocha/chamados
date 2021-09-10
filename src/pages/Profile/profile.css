@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    background-color: #F8F8F8;
+    align-items: center;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.avatar-profile {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar-profile input {
+    display: none;
+}
+
+.avatar-profile span {
+    z-index: 99;
+    position: absolute;
+    opacity: 0.7;
+    transition: all 0.5s;
+}
+
+.avatar-profile span:hover {
+    opacity: 1;
+    transform: scale(1.4);
+}
+
+.avatar-profile img {
+    margin-bottom: 1em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-profile label {
+    margin-bottom: 0.5em;
+    font-size: large;
+}
+
+.form-profile input, textarea, select {
+    margin-bottom: 1em;
+    border-radius: 5px;
+    padding: 0.8em;
+    border: none;
+}
+
+.form-profile input:disabled {
+    cursor: not-allowed;
+}
+
+.form-profile button {
+    color : rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    padding: 0.5em;
+    background-color: #181C2E;
+    text-align: center;
+    transition: ease-in-out 0.4s;
+}
+

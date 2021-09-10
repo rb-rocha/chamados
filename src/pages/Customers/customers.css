@@ -1,0 +1,40 @@
+.add-customer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1em;
+    width: 10em;
+}
+
+.add-customer {
+    border: none;
+    border-radius: 5px;
+    color: #F8F8F8;
+    padding: 0.5em;
+    background-color: #181C2E;
+}
+
+.add-customer svg {
+    padding-right: 0.5em;
+}
+
+.cancel-customer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1em;
+    width: 10em;
+}
+
+.cancel-customer {
+    border: none;
+    border-radius: 5px;
+    color: #F8F8F8;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    background-color: rgb(255, 57, 57);
+}
+
+.cancel-customer svg {
+    padding-right: 0.5em;
+}
