@@ -52,21 +52,21 @@ function Dashnboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {chamados.map((chamado)=>{
+                        {chamados.map((chamado, index)=>{
                             return(
                                 <tr key={chamado.id}>
-                                    <td data-label="Codigo">01</td>
+                                    <td data-label="Codigo">{index+1}</td>
                                     <td data-label="Cliente">{chamado.cliente}</td>
                                     <td data-label="Assunto">{chamado.assunto}</td>
                                     <td data-label="Status">
-                                    <span className="badge">{chamado.status}</span>
+                                    <span className="badge" style={{ backgroundColor : chamado.status === 'Aberto' ? '#5FD204' : '#999'}}>{chamado.status}</span>
                                     </td>
-                                    <td data-label="Cadastrado">04/03/2021</td>
+                                    <td data-label="Cadastrado">{chamado.created}</td>
                                     <td data-label="#">
-                                    <button className="action">
+                                    <button className="action" style= {{backgroundColor : '#3583f6'}}>
                                         <FiSearch size={15}/>
                                     </button>
-                                    <button className="action">
+                                    <button className="action" style= {{backgroundColor : '#F6a935'}}>
                                         <FiEdit2 size={15}/>
                                     </button>
                                     </td>

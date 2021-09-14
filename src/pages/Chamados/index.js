@@ -32,15 +32,12 @@ export default function Chamados(){
 
     function handleAdd(e){
         e.preventDefault();
-        if(clienteIndex == ''){
-            setClienteIndex(0)
-            let nome = customers[clienteIndex].nome;
-            setCliente(nome)
-        }
-        else{
-            console.log(cliente)
-            setCliente(customers[clienteIndex].nome)
-        }
+        clientes.forEach((item)=>{
+           if(item.nome == cliente){
+               alert(cliente)
+                setClienteUID(item.id)
+           }
+        })
         chamadosAdd();
     }
 
@@ -60,11 +57,11 @@ export default function Chamados(){
                             <input id="inputCliente" type="text" disabled={true} value="Carregando clientes..."/>
                         ) :
                         (
-                            <select value={clienteIndex} onChange={(e)=>{setClienteIndex(e.target.value)}}>
+                            <select value={cliente} onChange={(e)=>{setCliente(e.target.value)}}>
                             {
                                 clientes.map((cl, index)=>{
                                     return(
-                                            <option key={cl.id} value={index}>{cl.nome}</option>
+                                            <option key={cl.id} value={cl.nome}>{cl.nome}</option>
                                     )
                                 })
                             }
