@@ -16,6 +16,7 @@ export default function CustomerProvider({children}){
     const [rua, setRua] = useState('');
     const [numCasa, setNumCasa] = useState('');
     const [inUse, setInUse] = useState(false);
+    const [firstClient, setFirstClient] =useState('');
 
     function limpaDados(){
         setNomeCliente('');
@@ -78,7 +79,9 @@ export default function CustomerProvider({children}){
                     num : doc.data().num
                 })
             })
-            setClientes(...clientes, lista);
+            setClientes(lista);
+            localStorage.setItem('clientes', JSON.stringify(lista));
+            setFirstClient(lista[0].nome);
             setInUse(false);
         })
         .catch((error)=>{
@@ -90,6 +93,8 @@ export default function CustomerProvider({children}){
 
     return(
         <CustomerContext.Provider value={{
+            firstClient,
+            inUse,
             clientes,
             cadastraCliente,
             nomeCliente,

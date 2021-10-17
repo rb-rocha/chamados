@@ -27,32 +27,34 @@ export default function ChamadosProvider({children}){
         setAssunto('Suporte');
         setStatus('Aberto');
         setComplemento('');
+        setClienteUID('');
     }
 
     useEffect(()=>{
+        limpaDados();
         buscaChamados();
     } ,[])
 
-    async function chamadosAdd(){
+    async function chamadosAdd(dado){
         await firebase.firestore().collection('chamados')
         .doc()
         .set({
             created : new Date(),
-            cliente : cliente,
-            assunto :  assunto,
-            status : status,
-            complemento : complemento,
+            cliente : dado.cliente,
+            assunto :  dado.assunto,
+            status : dado.status,
+            complemento : dado.complemento,
             userId : user.uid,
-            clienteUID : clienteUID
+            clienteUID : dado.clienteUID
         })
         .then(()=>{
-            toast.success('Chamado cadastrado com sucesso!')
             limpaDados();
+            toast.success('Chamado cadastrado com sucesso!')
             buscaChamados();
         })
         .catch((error)=>{
-            toast.warning('Ocorreu um problema ao registrar o cadastro')
             limpaDados();
+            toast.warning('Ocorreu um problema ao registrar o chamado')
         })
     }
 
@@ -71,13 +73,12 @@ export default function ChamadosProvider({children}){
                     status : doc.data().status,
                     complemento : doc.data().complemento,
                     userId : doc.data().userId,
-                    created : format(doc.data().created.toDate(), 'dd/MM/yyyy'),
+                    created : doc.data().created,
+                    createdFormated: format(doc.data().created.toDate(), 'dd/MM/yyyy'),
                     clienteUID : doc.data().clienteUID
                 });
-            }))
-
-            const lastDoc = snapshot.docs[snapshot.docs.length -1];
-
+            })
+            )
             setInUse(false);
             setChamados(lista);
         })

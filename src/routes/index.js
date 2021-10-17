@@ -19,6 +19,7 @@ export default function Routes(){
             <Route exact path="/profile" component={Profile} isPrivate/>
             <Route exact path="/customers" component={Customers} isPrivate/>
             <Route exact path="/chamados" component={Chamados} isPrivate/>
+            <Route exact path="/chamados/:id" component={Chamados} isPrivate/>
         </Switch>
     );
 }

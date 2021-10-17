@@ -74,6 +74,7 @@ function AuthProvider({children}){
     async function signOut(){
         await firebase.auth().signOut();
         localStorage.removeItem('SistemUser');
+        localStorage.removeItem('clientes');
         setUser(null);
     }
 
